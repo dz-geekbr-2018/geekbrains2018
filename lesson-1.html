@@ -1,0 +1,176 @@
+<script language="JavaScript">
+
+/**
+ * Lesson 1 Task 1 
+ */
+ 
+var br = '<br/>';
+ 
+function loop(times, callback) {
+	for(let i = 0; i < times && callback; i++){
+		callback(i);
+	}
+}
+
+document.writeln('Lesson 1 Task 1' + br);
+loop(10, function(a){document.write(a + br)});
+
+/**
+ * Lesson 1 Task 2 
+ */
+function calculateArea(input) {
+	let result = {};
+	result.area = input.params[0]*input.params[1];
+	result.figure = 'quad';
+	result.input = input;
+	
+	return result;
+}
+
+
+var area = {};
+area.params = [2, 2];
+area = calculateArea(area);
+document.writeln('Lesson 1 Task 2' + br);
+//console.log('Lesson 1 Task 2: Area=' + area);
+document.write('Area=' + JSON.stringify(area) + br);
+
+/**
+ * Lesson 1 Task 3 
+ */
+class Human {
+	constructor(name = '', age = 0, dateOfBirth = '01.01.1970') {
+		this.name = name;
+		this.age = age;
+		this.dateOfBirth = dateOfBirth;
+	}
+	displayInfo(){
+		return this.name + '; ' + this.age + '; ' + this.dateOfBirth + '; ';
+	}
+}
+
+class Employee extends Human {
+	constructor(name, age, dateOfBirth, salary, department) {
+		super(name, age, dateOfBirth);
+		this.salary = salary;
+		this.department = department;
+	}
+	displayInfo(){
+		return super.displayInfo() + this.salary + '; ' + this.department + '; ';
+	}
+}
+
+class Manager extends Employee {
+	constructor(name, age, dateOfBirth, salary, department) {
+		super(name, age, dateOfBirth, salary, department);
+		this.employes = [];
+	}
+	displayInfo(){
+		return super.displayInfo() + this.employes.map(item =>item.name);
+	}
+	addEmployee(employee){
+		this.employes.push(employee);
+	}
+	removeEmployee(employee){
+		this.employes = this.employes.filter(item => item !== employee)
+	}
+}
+
+class Developer extends Employee {
+	constructor(name, age, dateOfBirth, salary, department) {
+		super(name, age, dateOfBirth, salary, department);
+		this.manager = null;
+	}
+	displayInfo(){
+		return super.displayInfo() + (this.manager?this.manager.name:'No Manager');
+	}
+	setManager(manager){
+		if(this.manager){
+			this.manager.removeEmployee(this);
+		}
+		if(manager){
+			manager.addEmployee(this);
+			this.manager = manager;
+		}
+	}
+}
+
+var m1 = new Manager('Manager1', 31, '01.01.1971', 101, 'Dep1');
+var m2 = new Manager('Manager2', 32, '01.01.1972', 102, 'Dep2');
+var d1 = new Developer('Developer1', 31, '01.01.1971', 101, 'Dep1');
+var d2 = new Developer('Developer2', 32, '01.01.1972', 102, 'Dep2');
+
+m1.addEmployee(d1);
+d2.setManager(m2);
+
+document.write('Lesson 1 Task 3' + br);
+document.write();
+document.write('m1--->>>' + m1.displayInfo() + br);
+document.write('m2--->>>' + m2.displayInfo() + br);
+
+d2.setManager(m1);
+document.write('m1--->>>' + m1.displayInfo() + br);
+
+d1.setManager(m2);
+d2.setManager(m2);
+document.write('m1--->>>' + m1.displayInfo() + br);
+document.write('m2--->>>' + m2.displayInfo() + br);
+
+/**
+ * Lesson 1 Task 4 
+ */
+function* testGen(){
+	var person = {};
+	
+	person.lastName = prompt("Enter your Last name");
+  	yield person.lastName;
+  	
+  	person.firstName = prompt("Enter your First name");
+  	yield person.firstName;
+  	
+  	person.middleName = prompt("Enter your Middle name");
+  	yield person.middleName;
+  	
+  	return person;
+}
+
+document.write('Lesson 1 Task 4' + br);
+
+let genn = testGen();
+
+let v = {};
+do {
+	v = genn.next();
+} while (!v.done);
+
+document.write(JSON.stringify(v.value) + br);
+console.log(v.value);
+
+/**
+ * Lesson 1 Task 5 
+ */
+class MyPromise {
+	constructor(url, number) {
+		this.url = url + number;
+	}
+	run(){
+		fetch(this.url).then(function(response) { alert(response)});
+	}
+}
+
+function testPromise(){
+	var url = 'https://jsonplaceholder.typicode.com/users/';
+		
+	var arr = [];
+	for(let i = 0; i < 10; i++){		
+		arr.push(fetch(url + (i+1)).then(response => response.json()));
+	}
+	Promise.all(arr).then(v => { 
+		  console.log(v); 
+		});
+}
+
+document.write('Lesson 1 Task 5' + br);
+testPromise();
+
+</script>
