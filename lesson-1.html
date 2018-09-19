@@ -6,7 +6,7 @@
  
 var br = '<br/>';
  
-function loop(times, callback) {
+function loop(times = 0, callback) {
 	for(let i = 0; i < times && callback; i++){
 		callback(i);
 	}
