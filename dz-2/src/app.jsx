@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import JUserName from './app/components/username';
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
-    <div onClick={()=>{alert('1');}}>
-        Второе приложение на React
-    </div>,
+    JUserName(),
 app);
