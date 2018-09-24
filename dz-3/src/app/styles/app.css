@@ -1,0 +1,15 @@
+* { padding:0; margin:0; }
+html{ font:14px normal Arial, sans-serif; color:#658321; background-color:#fff; }
+body{ padding:10px; text-align: left; }
+ul{ list-style:none; display: inline-block; }
+ul li{ display: inline-block; padding: 10px 20px; cursor:pointer; background-color:#eee; color:#156831; transition:0.3s; }
+ul li:hover{ background-color:#beecea; }
+ul li.selected{ color:#fff; background-color:#3b5998; }
+p{ padding-top:15px; font-size:12px; }
+.inline{
+  display: inline-block;
+}
+.login{
+  display: inline-block;
+  background-color:#3bff98;
+}
