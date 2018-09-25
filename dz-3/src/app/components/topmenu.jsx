@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import '../styles/app.css';
 
 class JTopMenu extends React.Component {
-  state = {selected: 1}
-
   constructor(){
     super();
+    this.state = {selected: 1};
     this.doClick = this.doClick.bind(this);
   }
   doClick(el){

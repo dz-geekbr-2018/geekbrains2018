@@ -1,14 +1,18 @@
 * { padding:0; margin:0; }
-html{ font:14px normal Arial, sans-serif; color:#658321; background-color:#fff; }
-body{ padding:10px; text-align: left; }
+html{ font:14pt normal Arial, sans-serif; color:#658321; background-color:#fff; }
+body{ padding:10pt; text-align: left; }
 ul{ list-style:none; display: inline-block; }
-ul li{ display: inline-block; padding: 10px 20px; cursor:pointer; background-color:#eee; color:#156831; transition:0.3s; }
+ul li{ display: inline-block; padding: 10pt 20pt; cursor:pointer; background-color:#eee; color:#156831; transition:0.3s; }
 ul li:hover{ background-color:#beecea; }
 ul li.selected{ color:#fff; background-color:#3b5998; }
-p{ padding-top:15px; font-size:12px; }
+p{ padding-top:15pt; font-size:12pt; }
 
+.left-menu-top{
+  padding: 25pt 0pt;
+}
 .left-menu-item{
-  padding: 5px 20px;
+  border-radius: 14pt;
+  padding: 5pt 20pt;
 }
 .left-menu-item:hover{
   background-color:#beecea;

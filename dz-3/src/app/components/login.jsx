@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import { Button, Modal, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 class JLogin extends React.Component {
-  state = {show: false}
-
   constructor(){
     super();
+    this.state = {show: false};
     this.doClick = this.doClick.bind(this);
     this.doClose = this.doClose.bind(this);
   }
@@ -32,14 +31,16 @@ class JLogin extends React.Component {
              <ControlLabel>Name</ControlLabel>
              <FormControl
                autoFocus
+               placeholder='Enter your login'
                value={this.state.username}
              />
            </FormGroup>
            <FormGroup controlId="pwd" bsSize="large">
              <ControlLabel>Password</ControlLabel>
              <FormControl
-               autoFocus
-               value={this.state.pwd}
+                placeholder='Enter the password'
+                value={this.state.pwd}
+                type='password'
              />
            </FormGroup>
            </Modal.Body>
