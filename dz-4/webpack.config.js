@@ -47,11 +47,15 @@ module.exports = {
             {
                 test: /\.svg$/,
                 loader: "url-loader?limit=10000&mimetype=application/svg+xml&name=./fonts/[name].[ext]"
+            },
+            {
+                test: /\.png$/,
+                loader: "url-loader?limit=10000&mimetype=image/png&name=./img/[name].[ext]"
             }
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.sass', '.css']
+        extensions: ['', '.js', '.jsx', '.sass', '.css', '.png']
     },
     plugins: [
         new webpack.NoErrorsPlugin(),
