@@ -4,12 +4,6 @@ import JMenu from './menu';
 import '../styles/app.css';
 
 class JTopMenu extends JMenu {
-  constructor(props){
-    super(props);
-    this.state = {selected: 1};
-    this.doClick = this.doClick.bind(this);
-  }
-
   render() {
     var self = this;
     var idx = 0;

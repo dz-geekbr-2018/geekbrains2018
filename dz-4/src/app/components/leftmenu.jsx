@@ -9,9 +9,6 @@ var cssDivRight = {
 };
 
 class JLeftMenu extends JMenu {
-  constructor(props){
-    super(props);
-  }
   render() {
     var self = this;
     var idx = 0;
