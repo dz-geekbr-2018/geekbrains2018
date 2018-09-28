@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import JCard from './card';
 
 class JMainHeader extends React.Component {
   render() {
@@ -29,8 +30,8 @@ class JMainContent extends React.Component {
   }
   render() {
     return (
-      <div className='center'>
-        <span>Loaded page content: {this.state.body}</span>
+      <div className='left'>
+        <JCard title={this.state.body}/>
       </div>
     );
   }

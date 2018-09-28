@@ -49,6 +49,9 @@ ul li.selected{ color:#fff; background-color:#3b5998; }
 .center{
   text-align: center;
 }
+.left{
+  text-align: left;
+}
 .main-header{
   color: #fff;
   background-color:#3b5998;
@@ -59,4 +62,12 @@ ul li.selected{ color:#fff; background-color:#3b5998; }
   color: #fff;
   background-color:#fb5998;
   padding: 0pt 5pt;
+}
+.img100-100{
+  background: url('../img/100-100.png');
+}
+.border{
+  border: 1pt;
+  border-radius: 3pt;
+  border-style: dotted;
 }
