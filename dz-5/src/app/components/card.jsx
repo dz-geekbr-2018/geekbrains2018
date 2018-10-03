@@ -18,10 +18,10 @@ class JCard extends React.Component {
     return (
       <div className='border' >
         <div className='img100-100' style={cssCardImg}/>
-        <h3>Page head {this.props.title}</h3>
-        <div>{this.props.title}</div>
-        {
-        <Link to={`/blogs/${this.props.blogId}`}>Детали-></Link>
+        <h3>Page head {this.props.name}</h3>
+        <div>{this.props.name}</div>
+        {(!this.props.params)?
+        <Link to={`/blogs/${this.props.blogId}`}>Детали-></Link>:''
         }
       </div>
     );
