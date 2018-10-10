@@ -39,6 +39,15 @@ export function postsReducer(state = {posts: [], is_loading: false}, action) {
                 state = merge({}, state);
                 state.posts.splice(index, 1);
             }
+            break;
+        }
+        case ConstantPosts.GET_USER_POSTS_PENDING: {
+            state = {...state, is_loading: true};
+            break;
+        }
+        case ConstantPosts.GET_USER_POSTS_FULFILLED: {
+            state = {...state, is_loading: false, posts: action.payload.data};
+            break;
         }
     }
     return state;
