@@ -11,5 +11,7 @@ export const GET_USER_POSTS = 'GET_USER_POSTS';
 export const GET_USER_POSTS_FULFILLED = 'GET_USER_POSTS_FULFILLED';
 export const GET_USER_POSTS_REJECTED = 'GET_USER_POSTS_REJECTED';
 
+export const SET_USER_ID = 'SET_USER_ID';
+
 //Удаление постов
 export const DELETE_POST = 'DELETE_POST';

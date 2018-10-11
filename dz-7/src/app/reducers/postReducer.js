@@ -1,7 +1,7 @@
 import * as ConstantPosts from '../constants/postConstants';
 import merge from 'lodash/merge';
 
-export function postsReducer(state = {posts: [], is_loading: false}, action) {
+export function postsReducer(state = {posts: [], is_loading: false, userId: 0}, action) {
     switch (action.type) {
         case ConstantPosts.GET_POSTS_PENDING: {
             state = {...state, is_loading: true}; //Вариант 1
@@ -47,6 +47,14 @@ export function postsReducer(state = {posts: [], is_loading: false}, action) {
         }
         case ConstantPosts.GET_USER_POSTS_FULFILLED: {
             state = {...state, is_loading: false, posts: action.payload.data};
+            break;
+        }
+        case ConstantPosts.SET_USER_ID: {
+            if(state.userId === action.payload){
+              state = {...state, userId: 0};
+            } else {
+              state = {...state, userId: action.payload};
+            }
             break;
         }
     }
