@@ -1,5 +1,6 @@
 module.exports = function(app,db){
   app.post('/notes', (req, res) => {
-    res.send('It was post request');
-  })
+    console.log('note_routes: ' + req);
+    res.send('It was post request: ' + req);
+  });
 };
