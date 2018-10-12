@@ -1,11 +1,19 @@
-const db = require('../../config/db');
+module.exports = function(app, database){
+  app.get('/notes/', (req, res) => {
+    database.collection('notes').find().toArray(function(err, results){
+      if(err){
+        res.send({'error': 'Mongo ERROR: ' + err});
+      } else {
+        res.send(results);
+      }
+    });
+  });
 
-module.exports = function(app,db){
   app.post('/notes', (req, res) => {
     console.log('req.body=' + req.body);
     let json = req.body;
     let item = {text: json.text};
-    db.collection('notes').insert(item, (err, result) => {
+    database.collection('notes').insert(item, (err, result) => {
       if(err){
         res.send({'error': 'Mongo ERROR: ' + err});
       } else {
